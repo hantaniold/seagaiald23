@@ -7,6 +7,8 @@ package
 	 * ...
 	 * @author Seagaia (Sean Hogan)
 	 */
+	[SWF(width="640", height="480", backgroundColor="#000000")]
+	//[Frame(factoryClass = "Preloader")]
 	public class Main extends Sprite 
 	{
 		
@@ -19,7 +21,8 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-            addChild(
+            var game:GameState = new GameState;
+            addChild(game);
 			// entry point
 		}
 		
