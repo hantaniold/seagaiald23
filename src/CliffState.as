@@ -130,7 +130,12 @@ package
            
            
            //some state of the canvas
-            if (Registry.keywatch.JP_ACTION_2) {
+            if (canvas.state == canvas.S_DRAW_VERT) {
+                if (Registry.keywatch.JP_ACTION_2) {
+                    canvas.state = canvas.S_NORMAL;
+                    canvas.horizontal_marker.visible = false;
+                }
+            } else if (Registry.keywatch.JP_ACTION_2) {
                 if (canvas.state == canvas.S_DRAW_HOR) {
                     canvas.state = canvas.S_DRAW_VERT;
                     canvas.horizontal_marker.visible = false;
@@ -147,6 +152,10 @@ package
             
             //leave the room blur
             if (player.x < 0) {
+                if (Registry.DRAWING_1_DONE == false ) {
+                    Registry.DRAWING_1_DONE = true;
+                    Registry.drawing_1.copyPixels(canvas.base.pixels, canvas.base.pixels.rect, canvas.base.pixels.rect.topLeft);
+                }
                 canvas.base.pixels.applyFilter(canvas.base.pixels, canvas.base.pixels.rect, canvas.base.pixels.rect.topLeft, exitBlur);
                 canvas.base.dirty = true;
                 canvas.alpha -= 0.02;
@@ -167,11 +176,15 @@ package
                     Registry.just_transitioned = true;
                 }
             }
+            if (player.x > 497) {
+                player.x = 497;
+                player.velocity.x = 0;
+            }
         }
         
         public function events():void {
             //entering cliff cutscene
-            event_pos = 14;
+         //   event_pos = 14;
             if (!Registry.E_CLIFF_1) {
                 d = Registry.textData.cliff_dialogue;
                 switch (event_pos) {
@@ -229,6 +242,41 @@ package
                     //player.frozen = false;
             } else {
             
+            }
+            if (Registry.E_INSPIRATION_1 && !Registry.E_CLIFF_2) {
+                sittingGirl.visible = false;
+                player.text.visible = true;
+                player.frozen = true;
+                switch(event_pos) {
+                case 0:
+                    player.velocity.x = 50;
+                    player.play("walk");
+                    if (player.x  > 200) {
+                        player.velocity.x = 0;
+                        player.play("stop");
+                        event_pos++;
+                    } 
+                    break;
+                case 1:
+                    player.text.text = "Weird, she's gone!\n";
+                    break;
+                case 2:
+                    player.text.text = "That art canvas is still blank, though.";
+                    break;
+                case 3:
+                    player.text.text = "...and there's nothing else to do...\n";
+                    break;
+                case 4:
+                    player.frozen = false;
+                    player.text.visible = false;
+                    Registry.E_CLIFF_2 = true;
+                    break;
+                }
+                if (event_pos > 0) {
+                    if (Registry.keywatch.JP_ACTION_1) {
+                        event_pos++;
+                    }
+                }
             }
         }
     }

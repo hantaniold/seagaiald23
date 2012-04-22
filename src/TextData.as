@@ -46,7 +46,7 @@ package
             
             a.push("what else am I supposed to find?\nthis town is so small.");
             
-            a.push("maybe you should look harder.\n");
+            a.push("maybe you should\n look harder.\n");
             a.push("come back here when\nyou've got an idea or two...");
             
             a.push("(weird, but there's\nnot much else to do..)");

@@ -1,0 +1,336 @@
+<REAPER_PROJECT 0.1 "4.22"
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 1
+  ENVATTACH 1
+  MIXERUIFLAGS 11 48
+  PEAKGAIN 1.00000000000000
+  FEEDBACK 0
+  PANLAW 1.00000000000000
+  PROJOFFS 0.00000000000000 0
+  MAXPROJLEN 0 600.00000000000000
+  GRID 3199 8 1.00000000000000 8 1.00000000000000 0
+  TIMEMODE 1 0 -1
+  PANMODE 3
+  CURSOR 0.00000000000000
+  ZOOM 35.85960413809064 0 0
+  VZOOMEX 5
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 23.976024 100 40 1000 300 0 0.000000 1
+  LOOP 1
+  LOOPGRAN 0 4.00000000000000
+  RECORD_PATH "" ""
+  <RECORD_CFG
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE "C:\Users\Sean\Desktop\tinygames\seagaiald23\forestvibes\forestvibes.mp3"
+  RENDER_FMT 0 2 44100
+  RENDER_1X 0
+  RENDER_RANGE 2 0.00000000000000 0.00000000000000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 0
+  ITEMMIX 0
+  DEFPITCHMODE 393216
+  TAKELANE 1
+  SAMPLERATE 44100 0 0
+  <RENDER_CFG
+    bDNwbSAAAAABAAAA/////wQAAAAEAAAAQAEAAIAAAAA=
+  >
+  LOCK 1
+  <METRONOME 6 2.000000
+    VOL 0.250000 0.125000
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+  >
+  GLOBAL_AUTO -1
+  TEMPO 100.00000000000000 4 4
+  PLAYRATE 1.00000000000000 0 0.25000 4.00000
+  SELECTION 0.00000000000000 0.00000000000000
+  SELECTION2 0.00000000000000 0.00000000000000
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.666700 0.500000 0.500000 -1 -1 -1
+  MASTERHWOUT 0 0 1.00000000000000 0.00000000000000 0 0 0 -1.00000000000000
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1.69422918866281 0.00000000000000 -1.00000000000000 -1.00000000000000 1.00000000000000
+  MASTER_PANMODE -1
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERPLAYSPEEDENV
+    ACT 0
+    VIS 0 1 1.000000
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    ACT 0
+    VIS 1 0 1.000000
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  <PROJBAY
+  >
+  <TRACK '{4FF1E1E2-3691-41BC-965D-562AB87EA03A}'
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1.00000000000000 0.00000000000000 -1.00000000000000 -1.00000000000000 1.00000000000000
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.666700 0.500000 1 0.500000 -1 -1 -1
+    FREEMODE 0
+    SEL 1
+    REC 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5000000000 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {4FF1E1E2-3691-41BC-965D-562AB87EA03A}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 0 0
+      <VST "VSTi: sfz (rgc:audio software)" "sfz.dll" 0 ""
+        emZzcu5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAACjBAAAAQAAAA==
+        AAAQAHic7dQxi+UHGcXhIZ3Ya3t6XQsbwUYWjJ0QooLFNoFs4mLcgA==
+        2diaT2It9rb6UfwousVYuJDqbN49keeBM8Mt7tyX/3B/Dw//42cPgw==
+        /vzG639978UPXv/66r2Hf3znXdzzdd6886+Pd35//M6/P975w/E7/w==
+        8njn0/E7f/94Z17/aPbd1/t34aF8/3uv3//znz778P2nH7z/4bMPPg==
+        +/LTFy+/ePaL3z779e+e5zefvXrxh49ePc8vn3/60cd/fPGn5/nV5w==
+        X778+JPPX7760Ref/PgtPs+nj8/zq3f0f3/y5Mm7+Ni35s3n+ZPH5w==
+        +bfx79HD453/HLuTb17KNd37bzsbb+Nv/D/4trcTvm1STjs3aCfcSg==
+        Oe3coJ1wK+W0c4N2wq2U084N2gm3Uk47N2gn3Eo57dygnXAr5bRzgw==
+        dsKtlNPODdoJt1JOOzdoJ9xKOe3coJ1wK+W0c4N2wq2U084N2gm3Ug==
+        Tjs3aCfcSjnt3KCdcCvltHODdsKtlNPODdoJt1JOOzdoJ9xKOe3coA==
+        nXAr5bRzg3bCrZTTzg3aCbdSTjs3aCfcSjnt3KCdcCvltHODdsKtlA==
+        084N2gm3Uk47N2gn3Eo57dygnXAr5bRzg3bCrZTTzg3aCbdSTjs3aA==
+        J9xKOe3coJ1wK+W0c4N2wq2U084N2gm3Uk47N2gn3Eo57dygnXAr5Q==
+        tHODdsKtlNPODdoJt1JOOzdoJ9xKOe3coJ1wK+W0c4N2wq2U084N2g==
+        CbdSTjs3aCfcSjnt3KCdcCvltHODdsKtlNPODdoJt1JOOzdoJ9xKOQ==
+        7dygnXAr5bRzg3bCrZTTzg3aCbdSTjs3aCfcSjnt3KCdcCvltHODdg==
+        wq2U084N2gm3Uk47N2gn3Eo57dygnXAr5bRzg3bCrZTTzg3aCbdSTg==
+        OzdoJ9xKOe3coJ1wK+W0c4N2wq2U084N2gm3Uk47N2gn3Eo57dygnQ==
+        cCvltHODdsKtlNPODdoJt1JOOzdoJ9xKOe3coJ1wK+W0c4N2wq2U0w==
+        zg3aCbdSTjs3aCfcSjnt3KCdcCvltHODdsKtlNPODdoJt1JOOzdoJw==
+        3Eo57dygnXAr5bRzg3bCrZTTzg3aCbdSTjs3aCfcSjnt3KCdcCvltA==
+        c4N2wq2U084N2gm3Uk47N2gn3Eo57dygnXAr5bRzg3bCrZTTzg3aCQ==
+        t1JOOzdoJ9xKOe3coJ1wK+W0c4N2wq2U084N2gm3Uk47N2gn3Eo57Q==
+        3KCdcCvltHODdsKtlNPODdoJt1JOOzdoJ9xKOe3coJ1wK+W0c4N2wg==
+        rZTTzg3aCbdSTjs3aCfcSjnt3KCdcCvltHODdsKtlNPODdoJt1JOOw==
+        N2gn3Eo57dygnXAr5bRzg3bCrZTTzg3aCbdSTjs3aCfcSjnt3KCdcA==
+        K+W0c4N2wq2U084N2gm3Uk47N2gn3Eo57dygnXAr5bRzg3bCrZTTzg==
+        DdoJt1JOOzdoJ9xKOe3coJ1wK+W0c4N2wq2U084N2gm3Uk47N2gn3A==
+        Sjnt3KCdcCvltHODdsKtlNPODdoJt1JOOzdoJ9xKOe3coJ1wK+W0cw==
+        g3bCrZTTzg3aCbdSTjs3aCfcSjnt3PB17fwP+HqFCwAtLS0AEAAAAA==
+      >
+      FLOATPOS 13 287 504 204
+      FXID {1E4D5D8C-7178-4A40-81D8-E9C17C348D56}
+      WAK 0
+      BYPASS 0 0
+      <VST "VST: Bitcrusher" "Bitcrusher.dll" 0 ""
+        YXRpQu9e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAA==
+        AgAAAAAAAAAYAAAAAAAAAAAAEADvvq3eDfCt3gAAgD8AAIA/lNcwPw==
+        KK9BP0JpdGNydXNoZXIgVlNUAEJpdGNydXNoZXIgVlNUABAAAAA=
+      >
+      FLOATPOS 45 319 279 254
+      FXID {441B4D7F-191D-43E9-8F28-B9B9C4D65BED}
+      WAK 0
+    >
+    <ITEM
+      POSITION 0.00000000000000
+      SNAPOFFS 0.00000000000000
+      LENGTH 25.80000000000000
+      LOOP 0
+      ALLTAKES 0
+      SEL 1
+      FADEIN 1 0.000000 0.000000 1 0
+      FADEOUT 1 0.000000 0.000000 1 0
+      MUTE 0
+      IGUID {1EEF85C6-A435-44CB-9FD4-B9B02408EEE0}
+      IID 1
+      NAME "untitled MIDI item"
+      VOLPAN 1.000000 0.000000 1.000000 -1.000000
+      SOFFS 0.00000000000000 0.00000000000000
+      PLAYRATE 1.00000000000000 1 0.00000000000000 -1
+      CHANMODE 0
+      GUID {97E7E721-E553-489E-9EBD-7588CB113336}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {C7514DFE-35C2-4E44-9318-311D8200E3D7}
+        E 0 90 3a 7f
+        E 120 80 3a 00
+        E 0 90 38 7f
+        E 120 80 38 00
+        E 0 90 33 7f
+        E 2640 90 46 50
+        E 0 90 49 3c
+        E 960 80 46 00
+        E 0 80 49 00
+        E 0 90 2e 7f
+        E 0 90 44 50
+        E 0 90 46 3c
+        E 960 80 44 00
+        E 0 80 46 00
+        E 0 90 42 4c
+        E 960 80 42 00
+        E 0 90 41 4c
+        E 960 80 41 00
+        E 0 90 41 4c
+        E 120 80 41 00
+        E 0 90 42 4c
+        E 120 80 42 00
+        E 0 90 46 4c
+        E 720 90 4d 2b
+        E 120 80 4d 00
+        E 0 90 4e 2b
+        E 120 80 4e 00
+        E 0 90 52 2b
+        E 120 80 52 00
+        E 1200 80 46 00
+        E 2280 90 4d 51
+        E 1140 80 4d 00
+        E 0 90 4e 51
+        E 840 80 4e 00
+        E 0 90 50 62
+        E 600 80 50 00
+        E 0 90 52 62
+        E 540 80 52 00
+        E 0 90 50 62
+        E 540 80 50 00
+        E 0 90 4e 76
+        E 540 80 4e 00
+        E 0 90 4d 76
+        E 420 80 4d 00
+        E 0 90 4e 7f
+        E 420 90 50 7f
+        E 1 80 4e 00
+        E 418 90 52 7f
+        E 2 80 50 00
+        E 299 80 52 00
+        E 0 90 50 7f
+        E 300 90 4e 7f
+        E 1 80 50 00
+        E 298 90 4d 76
+        E 2 80 4e 00
+        E 239 80 4d 00
+        E 0 90 4e 76
+        E 240 80 4e 00
+        E 0 90 50 76
+        E 240 80 50 00
+        E 0 90 52 62
+        E 240 80 52 00
+        E 0 90 50 62
+        E 240 80 50 00
+        E 0 90 4e 62
+        E 179 90 4d 76
+        E 1 80 4e 00
+        E 180 80 4d 00
+        E 0 90 4e 76
+        E 180 80 4e 00
+        E 0 90 50 76
+        E 180 80 50 00
+        E 0 90 52 62
+        E 180 80 52 00
+        E 0 90 50 62
+        E 180 80 50 00
+        E 0 90 4e 62
+        E 120 80 4e 00
+        E 0 90 4d 62
+        E 120 80 4d 00
+        E 0 90 4e 62
+        E 120 80 4e 00
+        E 0 90 50 62
+        E 120 80 50 00
+        E 0 90 52 62
+        E 120 80 52 00
+        E 0 90 50 62
+        E 120 80 50 00
+        E 0 90 4e 61
+        E 120 80 4e 00
+        E 0 90 4d 76
+        E 181 80 4d 00
+        E 0 90 4e 76
+        E 180 80 4e 00
+        E 0 90 50 76
+        E 180 80 50 00
+        E 0 90 52 62
+        E 180 80 52 00
+        E 0 90 50 62
+        E 59 80 33 00
+        E 120 90 4e 7f
+        E 1 80 50 00
+        E 119 80 2e 00
+        E 179 90 4d 76
+        E 2 80 4e 00
+        E 239 80 4d 00
+        E 0 90 4e 76
+        E 240 80 4e 00
+        E 0 90 50 76
+        E 240 80 50 00
+        E 0 90 52 62
+        E 360 80 52 00
+        E 0 90 50 62
+        E 420 80 50 00
+        E 0 90 4e 62
+        E 420 80 4e 00
+        E 0 90 4d 62
+        E 420 80 4d 00
+        E 0 90 4b 61
+        E 240 80 4b 00
+        E 0 90 49 61
+        E 240 80 49 00
+        E 0 90 3f 62
+        E 0 90 46 61
+        E 1860 80 3f 00
+        E 0 80 46 00
+        e 0 90 33 7f
+        e 960 90 27 7f
+        e 0 90 2e 7f
+        E 5220 90 4d 62
+        E 780 80 4d 00
+        E 0 90 4b 51
+        E 1320 80 4b 00
+        E 60 90 4b 7f
+        E 60 90 4e 7f
+        E 60 90 52 7f
+        E 60 90 57 7f
+        E 60 90 55 7f
+        E 3240 80 4b 00
+        E 60 80 4e 00
+        E 60 80 52 00
+        E 60 80 57 00
+        E 60 80 55 00
+        e 180 80 27 00
+        e 960 80 33 00
+        e 0 80 2e 00
+        E 1200 b0 7b 00
+        GUID {A325C868-AD1C-488A-B238-5A14F4DAB394}
+        IGNTEMPO 0 120.00000000 4 4
+        SRCCOLOR 177
+        VELLANE 11 107 0
+        CFGEDITVIEW -2086.941269 0.018964 54 9 0 0 0
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.25000000 28 28 1370 742 0 0 0 0 0.00000000 0 0 0 0 0.500000 0 0 1.000000 64
+        KEYSNAP 0 0 "102034050607" 0 "Major"
+        EVTFILTER 0 -1 -1 -1 -1 0 1 0 0 -1.00000000 -1.00000000
+      >
+    >
+  >
+>

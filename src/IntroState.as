@@ -16,6 +16,8 @@ package
     {
         [Embed (source = "../img/housebg.png")] public var HouseBG:Class;
         [Embed (source = "../img/title_logo.png")] public var Logo:Class;
+        [Embed (source = "../img/seagaia.png")] public var Seagaia:Class;
+        [Embed (source = "../intronoise/intronoise.mp3")] public var IntroNoise:Class;
         
         public var stateTransition:Boolean = false;
         public var doText:Boolean = false;
@@ -29,9 +31,15 @@ package
         public var text:FlxBitmapFont;
         public var dialogueIndex:int = 0;
         public var exit:Boolean = false;
+        public var firstLogo:Boolean = false;
+        public var seagaia:FlxSprite = new FlxSprite(0, 0);
+        public var seagaiaTimer:Number = 2;
         
         override public function create():void {
             Registry.init();
+            FlxG.music = new FlxSound();
+            FlxG.music.loadEmbedded(IntroNoise);
+            FlxG.music.play();
             text = new FlxBitmapFont(Registry.Font, 8, 14, Registry.fontString, 30, 0, 0, 0, 0);
             text.setText(" ", true, 0, 0, "center", true);
             text.x = 140;
@@ -42,9 +50,21 @@ package
             logo = new FlxSprite(0, 0); logo.loadGraphic(Logo, false, false, 640, 480);
             add(logo);
             add(text);
+            firstLogo = true;
+            seagaia.loadGraphic(Seagaia, false, false, 640, 480);
+            add(seagaia);
         }
         
         override public function update():void {
+            if (firstLogo) {
+                seagaiaTimer -= FlxG.elapsed;
+                if (seagaiaTimer > 0) return;
+                
+                seagaia.alpha -= 0.01
+                if (seagaia.alpha < 0.02) firstLogo = false;
+                super.update();
+                return;
+            }
             if (exit) {
                 text.alpha -= 0.02;
                 if (text.alpha < 0.03) {
@@ -106,6 +126,9 @@ package
                 bg.pixels.colorTransform(bg.pixels.rect, darken);
                 bg.dirty = true;
                 logo.alpha -= 0.01;
+                FlxG.music.volume -= 0.05;
+                if (FlxG.music.volume < 0.1) FlxG.music.stop();
+                
                 logo.pixels.applyFilter(logo.pixels, logo.pixels.rect, logo.pixels.rect.topLeft,blur);
             //    FlxG.switchState(new CliffState());
                 if (logo.alpha < 0.03) {  logo.kill(); doText = true; text.visible = true; }
