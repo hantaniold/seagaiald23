@@ -7,7 +7,8 @@ package
 
      */
     import org.flixel.FlxG;
-    public class KeyWatch extends FlxBasic
+    import org.flixel.FlxSprite;
+    public class KeyWatch extends FlxSprite
     {
         
         public  var ACTION_1:Boolean = false;
@@ -15,9 +16,13 @@ package
         public  var ACTION_2:Boolean = false;
         public  var JP_ACTION_2:Boolean = false;
         public  var LEFT:Boolean = false;
+        public var JR_LEFT:Boolean = false;
         public  var RIGHT:Boolean = false;
+        public var JR_RIGHT:Boolean = false;
         public function KeyWatch() 
         {
+            super(0, 0);
+            visible = false;
             
         }
         
@@ -27,7 +32,9 @@ package
             ACTION_2 = FlxG.keys.SPACE;
             JP_ACTION_2 = FlxG.keys.justPressed("SPACE");
             LEFT = FlxG.keys.LEFT;
+            JR_LEFT = FlxG.keys.justReleased("LEFT");
             RIGHT = FlxG.keys.RIGHT;
+            JR_RIGHT = FlxG.keys.justReleased("RIGHT");
             super.update();
         }
     }

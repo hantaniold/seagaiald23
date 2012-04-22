@@ -5,14 +5,19 @@ package entity
      * @author seagaia
 
      */
+    import flash.display.BitmapData;
     import flash.geom.ColorTransform;
     import flash.geom.Point;
     import flash.geom.Rectangle;
+    import flash.display.BlendMode;
     import org.flixel.FlxSprite;
     import org.flixel.FlxG;
     import flash.display.BitmapDataChannel;
     public class Canvas extends FlxSprite
     {
+    
+        [Embed (source = "../../img/canvas_1.png")] public var Canvas_1:Class;
+        
         public var LEFT:int = 12;
         public var RIGHT:int = 23;
         public var UP:int = 44;
@@ -35,16 +40,22 @@ package entity
         public var vertical_marker:FlxSprite;
         public var vertical_marker_dir:int = DOWN;
         
+        public var darkness:int = 130;
+        public var buf:BitmapData;
         public var base:FlxSprite;
         
         public function Canvas(size:Rectangle) 
         {
             super(size.x,size.y);
-            makeGraphic(size.width, size.height, 0x88ffffff);
+            makeGraphic(size.width, size.height, 0x00ffffff);
+            
+           loadGraphic(Canvas_1, false, false, 100, 100);
             
             
             base = new FlxSprite(x, y);
-            base.makeGraphic(width, height, 0x88ffffff);
+            base.makeGraphic(width, height, 0x00000000);
+            
+            buf  = new BitmapData(size.width, size.height, true, 0x00000000);
             
             horizontal_marker =  new FlxSprite(x, y + height);
             horizontal_marker.makeGraphic(3, 4, 0xffff0000);
@@ -90,20 +101,26 @@ package entity
                 draw_hor_timer = 0;
             }
             if (Registry.keywatch.ACTION_1) {
-                if (hor_alpha > 0) { 
-                    hor_alpha -= 0.02;
+                if (hor_alpha > 0.5) { 
+                    hor_alpha -= 0.01;
                 } else {
-                    hor_alpha = 0;
+                    hor_alpha = 0.5;
                 }
+               
                 for (var i:int = 0; i < height; i++) {
-                    pixels.setPixel32(horizontal_marker.x - x, i, pixels.getPixel32(horizontal_marker.x - x, i) + 0x00ff0000 + int(hor_alpha * 255) * 0x01000000);
-                    if (Math.random() < 0.25) {
-                        pixels.setPixel32(horizontal_marker.x - x, i, 0x00000000);
-                    }
+                    if (pixels.getPixel32(horizontal_marker.x - x,i) != 0x00000000)
+                        buf.setPixel32(horizontal_marker.x - x, i,  0x00ff0000 + int(hor_alpha * darkness) * 0x01000000);
                 }
-                dirty = true;
+                
+                base.pixels.draw(buf, null, null, "add");
+                
+                for (var j:int = 0; j < height; j++) {
+                    buf.setPixel32(horizontal_marker.x - x, j , 0x00000000);
+                }
+                
+                base.dirty = true;
             } else {
-                hor_alpha = 1;
+                hor_alpha = 0.9;
             }
        }
        
@@ -125,20 +142,28 @@ package entity
                 draw_vert_timer = 0;
              }
             if (Registry.keywatch.ACTION_1)  {
-                if (vert_alpha > 0) {
-                    vert_alpha -= 0.02;
+                if (vert_alpha > 0.5) { 
+                    vert_alpha -= 0.01;
                 } else {
-                    vert_alpha = 0;
+                    vert_alpha = 0.5;
                 }
+               
                 for (var i:int = 0; i < width; i++) {
-                    pixels.setPixel32(i, vertical_marker.y - y, 0x0000ff00 + int(vert_alpha * 255) * 0x01000000);
+                    if (pixels.getPixel32(vertical_marker.y - y,i) != 0x00000000)
+                    buf.setPixel32(i, vertical_marker.y - y,  0x0000ff00 + int(vert_alpha * darkness) * 0x01000000);
                 }
-                dirty = true;
                 
+                base.pixels.draw(buf, null, null, "add");
+                
+                
+                for (var j:int = 0; j < width; j++) {
+                    buf.setPixel32(j, vertical_marker.y - y , 0x00000000);
+                }
+                
+                base.dirty = true;
             } else {
-                vert_alpha = 1;
+                vert_alpha = 0.9;
             }
-            
                
        }
         

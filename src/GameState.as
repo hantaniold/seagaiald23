@@ -7,7 +7,9 @@ package
     {
         public function GameState() {
             Registry.textData.init();
-            super(640, 480, CliffState);
+            trace(Registry.textData.cliff_dialogue[0]);
+            trace(Registry.textData.intro_dialogue[0]);
+            super(640, 480, EndingState);
         }
     }
     
