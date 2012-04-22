@@ -43,6 +43,7 @@ package entity
         public var darkness:int = 130;
         public var buf:BitmapData;
         public var base:FlxSprite;
+        public var colorIndex:int = 0;
         
         public function Canvas(size:Rectangle) 
         {
@@ -108,8 +109,9 @@ package entity
                 }
                
                 for (var i:int = 0; i < height; i++) {
-                    if (pixels.getPixel32(horizontal_marker.x - x,i) != 0x00000000)
-                        buf.setPixel32(horizontal_marker.x - x, i,  0x00ff0000 + int(hor_alpha * darkness) * 0x01000000);
+                    if (pixels.getPixel32(horizontal_marker.x - x, i) != 0x00000000)
+                        if (colorIndex != 2 || Math.random() < 0.5)
+                            buf.setPixel32(horizontal_marker.x - x, i,  Registry.colors[colorIndex] + int(hor_alpha * darkness) * 0x01000000);
                 }
                 
                 base.pixels.draw(buf, null, null, "add");
@@ -150,7 +152,7 @@ package entity
                
                 for (var i:int = 0; i < width; i++) {
                     if (pixels.getPixel32(vertical_marker.y - y,i) != 0x00000000)
-                    buf.setPixel32(i, vertical_marker.y - y,  0x0000ff00 + int(vert_alpha * darkness) * 0x01000000);
+                    buf.setPixel32(i, vertical_marker.y - y,  Registry.colors[colorIndex] + int(vert_alpha * darkness) * 0x01000000);
                 }
                 
                 base.pixels.draw(buf, null, null, "add");

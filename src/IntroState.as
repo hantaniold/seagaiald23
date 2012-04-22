@@ -67,8 +67,10 @@ package
             }
             if (exit) {
                 text.alpha -= 0.02;
+                FlxG.music.volume -= 0.05;
+                if (FlxG.music.volume < 0.1) FlxG.music.stop();
                 if (text.alpha < 0.03) {
-                    FlxG.switchState(new CliffState());
+                    FlxG.switchState(new HouseState());
                 }
                 return;
             }
@@ -85,16 +87,16 @@ package
                         text.text = filler + "So, here I am...taking a break.\nAt this small, isolated town...\nwhere my parents have this cottage.\n\n(Press x!)";
                         break;
                     case 3:
-                        text.text = filler + "I don't particularly expect\nto get anything out of this...it's quiet around here.\nNot much to do, you know?";
+                        text.text = filler + "I don't particularly expect\nto get anything out of this...\nBut it'll shut the coworker up.";
                         break;
                     case 4:
-                        text.text = filler + "No internet...";
+                        text.text = filler + "No internet means no Reddit.";
                         break;
                     case 5:
-                        text.text = filler + "No cable...";
+                        text.text = filler + "No cable means no ESPN.";
                         break;
                     case 6:
-                        text.text = filler + "What's a person supposed to do out here?";
+                        text.text = filler + "What's a person supposed to do out here?\nThoreau was insane.\nFuckin' Walden.";
                         break;
                     case 7:
                         text.text = filler + "Well, I'm just going to stay here\nfor a few days - then back out\n to the big, real world.\n";
@@ -126,8 +128,6 @@ package
                 bg.pixels.colorTransform(bg.pixels.rect, darken);
                 bg.dirty = true;
                 logo.alpha -= 0.01;
-                FlxG.music.volume -= 0.05;
-                if (FlxG.music.volume < 0.1) FlxG.music.stop();
                 
                 logo.pixels.applyFilter(logo.pixels, logo.pixels.rect, logo.pixels.rect.topLeft,blur);
             //    FlxG.switchState(new CliffState());

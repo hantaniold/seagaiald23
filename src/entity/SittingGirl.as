@@ -23,7 +23,7 @@ import org.flixel.plugin.photonstorm.FlxBitmapFont;
         
         override public function update():void {
             text.x = x - 100;
-            text.y = y - 48;
+            text.y = y + 90;
             super.update();
         }
     }

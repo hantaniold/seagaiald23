@@ -40,7 +40,7 @@ package
             
             a.push("then maybe you should\nfind some inspiration");
             
-            a.push("where? like that sunset?");
+            a.push("where? like, uh, the night sky?");
             
             a.push("well, sure..\nbut that's a boring thing\nto find inspiring..");
             

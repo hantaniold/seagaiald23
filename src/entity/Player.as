@@ -32,17 +32,21 @@ package entity
             press_x.play("press");
             press_x.visible = false;
             play("still");
+            text.x = x - 80;
+            text.y = y - 48;
+            
         }
         
         override public function update():void {
+        
+            if (frozen) return;
             text.x = x - 80;
             text.y = y - 48;
             
             press_x.x = x - 98;
             press_x.y = y - 48;
             
-            if (frozen) return;
-            
+            press_x.visible = false;
             if (Registry.keywatch.LEFT) {
                 play("walk");
                 scale.x = -1;

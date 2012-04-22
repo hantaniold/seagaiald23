@@ -17,6 +17,8 @@ import org.flixel.*;
         [Embed (source = "../img/forestbg.png")] public var ForestBG:Class;
         [Embed (source = "../img/forestfg.png")] public var ForestFG:Class;
         [Embed (source = "../img/plant.png")] public var Plant:Class;
+        [Embed (source = "../img/rock.png")] public var Rock:Class;
+        [Embed (source = "../img/puddle.png")] public var Puddle:Class;
         [Embed (source = "../forestvibes/forestvibes.mp3")] public var ForestVibes:Class;
         public var player:Player;
         
@@ -36,9 +38,13 @@ import org.flixel.*;
         public var offsetPointDir:int = -1;
         
         public var plant:FlxSprite;
+        public var rock:FlxSprite;
+        public var puddle:FlxSprite;
         
         public var eventPos:int = 0;
         public var doEvent:Boolean = false;
+        public var doRockEvent:Boolean = false;
+        public var doPuddleEvent:Boolean = false;
         public var beginExit:Boolean = false;
         
         override public function create():void {
@@ -86,7 +92,28 @@ import org.flixel.*;
             plant.play("a");
             plant.pixels.applyFilter(plant.pixels, plant.pixels.rect, plant.pixels.rect.topLeft, varBlur);
             plant.dirty = true;
-            add(plant);
+            if (Registry.E_CLIFF_1)
+                    add(plant);
+            
+            
+            if (Registry.E_CLIFF_3) {
+                rock = new FlxSprite(100, 350);
+                rock.loadGraphic(Rock, true, false, 24, 24);
+                rock.addAnimation("a", [0, 1, 2, 3], 6, true);
+                rock.play("a");
+                rock.pixels.applyFilter(rock.pixels, rock.pixels.rect, rock.pixels.rect.topLeft, varBlur);
+                rock.dirty = true;
+                add(rock);
+                
+                
+                puddle = new FlxSprite(400, 350);
+                puddle.loadGraphic(Puddle, true, false, 30, 25);
+                puddle.addAnimation("a", [0, 1, 2, 3], 6, true);
+                puddle.play("a");
+                puddle.pixels.applyFilter(puddle.pixels, puddle.pixels.rect, puddle.pixels.rect.topLeft, varBlur);
+                puddle.dirty = true;
+                add(puddle)
+            }
         }
         
         override public function update():void {
@@ -99,34 +126,28 @@ import org.flixel.*;
             }
             offsetPoint.y = -10 + 20 * Math.random();
             
-            if (doEvent) {
-                player.frozen = true;
-                player.velocity.x = 0;
-                player.text.visible = true;
-                switch (eventPos) {
-                case 0:
-                    player.text.text = "Maybe this is what she meant by inspiration.\n"; break;
-                case 1:
-                    if (Registry.inspirationSource == "plant") player.text.text = "...in the form of this sort of\nodd plant. It's nice I guess.\n";
-                    break;
-                case 2:
-                    player.text.text = "Well, better go back over there then.";
-                     break;
-                case 3:
-                    doEvent = false;
-                    player.frozen = false;
-                    player.text.visible = false;
-                    break;
-                }
-                if (Registry.keywatch.JP_ACTION_1) {
-                    eventPos++;
-                }
-            }
+            events();
+           
             if (player.overlaps(plant) && Registry.E_CLIFF_1) {
-                if (Registry.keywatch.JP_ACTION_1) {
+                if (Registry.keywatch.JP_ACTION_1 && !Registry.E_INSPIRATION_1) {
                     Registry.E_INSPIRATION_1 = true;
                     Registry.inspirationSource = "plant";
                     doEvent = true;
+                }
+            }
+            
+            if (Registry.E_CLIFF_3) {
+            
+                if (player.overlaps(rock) && Registry.keywatch.JP_ACTION_1 && !Registry.E_INSPIRATION_2) {
+                    Registry.E_INSPIRATION_2 = true;
+                    doRockEvent = true;
+                    eventPos = 0;
+                    
+                }
+                if (player.overlaps(puddle) && Registry.keywatch.JP_ACTION_1 && !Registry.E_INSPIRATION_3) {
+                    Registry.E_INSPIRATION_3 = true;
+                    doPuddleEvent = true;
+                    eventPos = 0;
                 }
             }
            
@@ -185,10 +206,94 @@ import org.flixel.*;
             } 
             if (player.x < 0) {
                 FlxG.switchState(new HouseState());
-                Registry.enter_dir = FlxObject.LEFT;
+                Registry.enter_dir = FlxObject.RIGHT;
                 Registry.just_transitioned = true;
             }
             super.update();
+        }
+        
+        public function events():void {
+            if (doEvent) {
+                player.frozen = true;
+                player.velocity.x = 0;
+                player.text.visible = true;
+                switch (eventPos) {
+                case 0:
+                    player.text.text = "Maybe this is what she meant by inspiration.\n"; break;
+                case 1:
+                    if (Registry.inspirationSource == "plant") {
+                        player.text.text = "...in the form of this sort of\nodd plant. It's nice I guess.\n";
+                        if (Registry.colors.length == 2) { 
+                            Registry.colors[1] = 0x0000ee22;
+                        }
+                    }
+                    break;
+                case 2:
+                    player.text.text = "Well, better go back over there then.";
+                     break;
+                case 3:
+                    doEvent = false;
+                    player.frozen = false;
+                    player.text.visible = false;
+                            FlxG.play(Registry.IdeaSound);
+                    break;
+                }
+            }
+            
+            if (doRockEvent) {
+                switch (eventPos) {
+                case 0:
+                    player.frozen = true;
+                    player.velocity.x = 0;
+                    player.text.visible = true;
+                    player.text.text = "That would be a rock.\n";
+                    
+                    break;
+                case 1:
+                    player.text.text = "There aren't a lot\n of rocks here...";
+                    break;
+                case 2:
+                    player.text.text = "...";
+                    break;
+                case 3:
+                    player.text.text = "Right, anyways...";
+                    break;
+                case 4:
+                    FlxG.play(Registry.IdeaSound);
+                    Registry.colors.push(0x004f5c1b);
+                    player.text.text = " ";
+                    player.frozen = false;
+                    doRockEvent = false;
+                    break;
+                }
+            }
+            if (doPuddleEvent) {
+                switch (eventPos) {
+                case 0:
+                    player.text.text = "I guess it must have rained last night.";
+                    player.frozen = true;
+                    player.velocity.x = 0;
+                    player.text.visible = true;
+                    break;
+                case 1:
+                    player.text.text = "This forest does smell\n a bit like dew and soil.";
+                    break;
+                case 2:
+                    player.text.text = "Which gives me an idea...";
+                    break;
+                case 3:
+                    FlxG.play(Registry.IdeaSound);
+                    Registry.colors.push(0x000022ee);
+                    player.frozen = false;
+                    player.text.text = " ";
+                    doPuddleEvent = false;
+                    break;
+                }
+                
+            }
+            if (Registry.keywatch.JP_ACTION_1) {
+                eventPos++;
+            }
         }
     }
 
