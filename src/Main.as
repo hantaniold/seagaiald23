@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import com.newgrounds.*;
+    import Playtomic.Log;
     import com.newgrounds.components.*;
 	/**
 	 * ...
@@ -21,6 +22,8 @@ package
 		
 		private function init(e:Event = null):void 
 		{
+            
+            Log.View(7730, "51efc76532a54cc2", "49c2e17384e241cc9fc7a2197a78c5");
             
             var medalPopup:MedalPopup = new MedalPopup();
             medalPopup.x = medalPopup.y = 5;

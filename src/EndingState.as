@@ -7,6 +7,7 @@ package
     import org.flixel.FlxG;
     import org.flixel.FlxU;
     import org.flixel.FlxState;
+    import Playtomic.Log;
     import com.newgrounds.*;
     import com.newgrounds.components.*;
 	/**
@@ -25,6 +26,9 @@ package
         public var bm:Bitmap;
         public var overlay:FlxSprite = new FlxSprite(0, 0);
             override public function create():void {
+            
+            Log.LevelCounterMetric("Reached ending", 1, true);
+            Log.LevelAverageMetric("Colors at ending.", 1, Registry.colors.length, true);
                 
             text.setText("                                   \n\
             thanks for playing this game. \n(it's over now, phew.)\n \                      made by seagaia (sean hogan) \n\n\n for ludum dare twenty three\n (april two thousand and twelve)\n\

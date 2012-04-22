@@ -10,6 +10,7 @@ package
     import flash.geom.Rectangle;
     import org.flixel.*;
     import org.flixel.FlxState;
+    import Playtomic.Log;
 	/**
      * ...
      * @author seagaia
@@ -132,7 +133,9 @@ package
                                 c2.visible = false
                                 FlxG.stage.removeChild(c2);
                             } else {
+                                
                                 FlxG.switchState(new HouseState());
+                                Log.LevelCounterMetric("Got through day 1", 1, true);
                                 FlxG.stage.removeChild(c2);
                             }
                             

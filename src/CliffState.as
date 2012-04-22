@@ -8,6 +8,7 @@ package
 	import flash.filters.GlowFilter;
 	import flash.geom.ColorTransform;
 	import flash.geom.Point;
+    import Playtomic.Log;
 	import flash.geom.Rectangle;
 	import org.flixel.*;
 	import org.flixel.plugin.photonstorm.FlxBitmapFont;
@@ -308,10 +309,10 @@ package
 						
 						break;
 					case 2: 
-						player.text.text = "That art canvas is still blank, though.";
+						player.text.text = "That art canvas is still blank, though.\nI should press X in front of it.";
 						break;
 					case 3: 
-						player.text.text = "...and there's nothing else to do...\nmaybe i should press x\nin front of the canvas.";
+						player.text.text = "...and there's nothing else to do...\nmaybe i should press X\nin front of the canvas.";
 						break;
 					case 4: 
 						player.frozen = false;
@@ -403,6 +404,8 @@ package
 						break;
 					case 8: 
 						player.text.text = " ";
+                                
+                        Log.LevelCounterMetric("did first painting.", 1, true);
 						player.frozen = false;
 						Registry.DRAWING_1_DONE = true;
 						break;
@@ -608,6 +611,7 @@ package
 						break;
 					case 10: 
 						player.frozen = false;
+                        Log.LevelCounterMetric("did second painting.", 1, true);
 						Registry.DRAWING_2_DONE = true;
 						player.text.text = " ";
 						Registry.drawing_2.copyPixels(canvas.base.pixels, canvas.base.pixels.rect, canvas.base.pixels.rect.topLeft);

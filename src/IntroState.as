@@ -5,6 +5,7 @@ package
     import flash.geom.Point;
     import org.flixel.*;
     import flash.display.*;
+    import Playtomic.Log;
     import org.flixel.plugin.photonstorm.FlxBitmapFont;
     
     /**
@@ -70,6 +71,7 @@ package
                 FlxG.music.volume -= 0.05;
                 if (FlxG.music.volume < 0.1) FlxG.music.stop();
                 if (text.alpha < 0.03) {
+                    Log.LevelCounterMetric("Entered game.", 1, true);
                     FlxG.switchState(new HouseState());
                 }
                 return;
